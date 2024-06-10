@@ -1,0 +1,22 @@
+version: "3.1"
+services:
+  db:
+    image: postgres
+    container_name: clean-postgres
+    restart: no
+    volumes:
+      - clean-postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: clean
+      POSTGRES_DB: codechella_db
+    ports:
+      - 5432:5432
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8082:8080
+volumes:
+  clean-postgres:
+    external: false #se true, você tem que criar volume externo.
