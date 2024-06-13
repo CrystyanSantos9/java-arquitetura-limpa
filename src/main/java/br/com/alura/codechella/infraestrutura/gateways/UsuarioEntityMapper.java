@@ -2,9 +2,7 @@ package br.com.alura.codechella.infraestrutura.gateways;
 
 import br.com.alura.codechella.domain.entities.usuario.Usuario;
 import br.com.alura.codechella.infraestrutura.persistence.UsuarioEntity;
-import ch.qos.logback.core.testUtil.DummyEncoder;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

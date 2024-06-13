@@ -1,6 +1,7 @@
 package br.com.alura.codechella.infraestrutura.Controller;
 
 import br.com.alura.codechella.application.usecases.CriarUsuario;
+import br.com.alura.codechella.application.usecases.ListarUsuarios;
 import br.com.alura.codechella.domain.entities.usuario.Usuario;
 import br.com.alura.codechella.infraestrutura.persistence.UsuarioEntity;
 import br.com.alura.codechella.naousar.service.UsuarioService;
@@ -23,9 +24,11 @@ import java.util.List;
 public class UsuarioController {
 
     private final CriarUsuario criarUsuario;
+    private final ListarUsuarios listarUsuarios;
 
-    public UsuarioController(CriarUsuario criarUsuario) {
+    public UsuarioController(CriarUsuario criarUsuario, ListarUsuarios listarUsuarios) {
         this.criarUsuario = criarUsuario;
+        this.listarUsuarios = listarUsuarios;
     }
 
     @PostMapping
@@ -36,6 +39,12 @@ public class UsuarioController {
 
         return ResponseEntity.created(uri).body(
                 new UsuarioDTO (usuarioSalvo.getCpf (), usuarioSalvo.getNome (), usuarioSalvo.getNascimento ().toString (), usuarioSalvo.getEmail ()));
+    }
+
+    @GetMapping
+    public List<UsuarioDTO> listarUsuarios(){
+        return listarUsuarios.listarTodos ().stream().map (usuario ->
+                new UsuarioDTO (usuario)).toList ();
     }
 
 }

@@ -2,6 +2,7 @@ package br.com.alura.codechella.Config;
 
 import br.com.alura.codechella.application.gateways.RepositorioDeUsuario;
 import br.com.alura.codechella.application.usecases.CriarUsuario;
+import br.com.alura.codechella.application.usecases.ListarUsuarios;
 import br.com.alura.codechella.infraestrutura.gateways.RepositorioDeUsuarioJPA;
 import br.com.alura.codechella.infraestrutura.gateways.UsuarioEntityMapper;
 import br.com.alura.codechella.infraestrutura.persistence.UsuarioRepository;
@@ -13,6 +14,11 @@ public class UsuarioConfig {
     @Bean
     CriarUsuario criarUsuario(RepositorioDeUsuario repositorioDeUsuario) {
         return new CriarUsuario (repositorioDeUsuario);
+    }
+
+    @Bean
+    ListarUsuarios listarUsuarios(RepositorioDeUsuario repositorioDeUsuario) {
+        return new ListarUsuarios (repositorioDeUsuario);
     }
 
 
