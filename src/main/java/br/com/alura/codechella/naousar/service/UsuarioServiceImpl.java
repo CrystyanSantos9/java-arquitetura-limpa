@@ -1,7 +1,7 @@
 package br.com.alura.codechella.naousar.service;
 
-import br.com.alura.codechella.naousar.model.Usuario;
-import br.com.alura.codechella.naousar.repository.UsuarioRepository;
+import br.com.alura.codechella.infraestrutura.persistence.UsuarioEntity;
+import br.com.alura.codechella.infraestrutura.persistence.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +13,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     private UsuarioRepository repository;
 
     @Override
-    public Usuario cadastrarUsuario(Usuario usuario) {
+    public UsuarioEntity cadastrarUsuario(UsuarioEntity usuario) {
         return repository.save(usuario);
     }
 
     @Override
-    public List<Usuario> listarTodos() {
+    public List<UsuarioEntity> listarTodos() {
         return repository.findAll();
     }
 }
