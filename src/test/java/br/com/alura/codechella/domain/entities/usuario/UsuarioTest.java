@@ -12,7 +12,7 @@ class UsuarioTest {
     public void naoDeveCadastrarUsuarioComCpfNoFormatoInvalido(){
         Assertions.assertThrows (IllegalArgumentException.class,
                 ()-> new Usuario
-                        (1L, "123.45.789-99", "Henrique", LocalDate.parse ("1990-09-08"),"hrq@gmail.com"));
+                        (1L, "123.45.789-99", "Henrique", LocalDate.parse ("1990-09-08"),"hrq@gmail.com", new Endereco ("Rua", 1, "complemento")));
     }
 
     @Test

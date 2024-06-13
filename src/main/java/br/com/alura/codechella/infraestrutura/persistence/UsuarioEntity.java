@@ -1,5 +1,6 @@
 package br.com.alura.codechella.infraestrutura.persistence;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,15 +20,30 @@ public class UsuarioEntity {
     private LocalDate nascimento;
     private String email;
 
+    @Embedded
+    private EnderecoEntity enderecoEntity;
+
+
+    public EnderecoEntity getEnderecoEntity() {
+        return enderecoEntity;
+    }
+
+    public void setEnderecoEntity(EnderecoEntity enderecoEntity) {
+        this.enderecoEntity = enderecoEntity;
+    }
+
+
+
     public UsuarioEntity() {
     }
 
-    public UsuarioEntity(Long id, String cpf, String nome, LocalDate nascimento, String email) {
+    public UsuarioEntity(Long id, String cpf, String nome, LocalDate nascimento, String email, EnderecoEntity enderecoEntity) {
         this.id = id;
         this.cpf = cpf;
         this.nome = nome;
         this.nascimento = nascimento;
         this.email = email;
+        this.enderecoEntity = enderecoEntity;
     }
 
     public Long getId() {

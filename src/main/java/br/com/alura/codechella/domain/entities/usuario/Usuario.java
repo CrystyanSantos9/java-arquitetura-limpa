@@ -14,7 +14,7 @@ public class Usuario {
     private Endereco endereco;
 
     @Default
-    public Usuario(Long id, String cpf, String nome, LocalDate nascimento, String email) {
+    public Usuario(Long id, String cpf, String nome, LocalDate nascimento, String email, Endereco endereco) {
 
         if(cpf == null || !cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}")){
             throw new IllegalArgumentException("CPF no padrão incorreto!");
@@ -25,10 +25,7 @@ public class Usuario {
         this.nome = nome;
         this.nascimento = nascimento;
         this.email = email;
-    }
-
-    public Usuario(Long id) {
-        this.id = id;
+        this.endereco = endereco;
     }
 
     public Usuario(String nome, String cpf, LocalDate nascimento) {
@@ -51,6 +48,18 @@ public class Usuario {
         this.nome = nome;
         this.nascimento = nascimento;
         this.email = email;
+    }
+
+    public Usuario(String cpf, String nome, LocalDate nascimento, String email, Endereco endereco) {
+        if(cpf == null || !cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}")){
+            throw new IllegalArgumentException("CPF no padrão incorreto!");
+        }
+
+        this.cpf = cpf;
+        this.nome = nome;
+        this.nascimento = nascimento;
+        this.email = email;
+        this.endereco = endereco;
     }
 
     public Long getId() {
