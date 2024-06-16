@@ -40,7 +40,7 @@ public class UsuarioWithBuilder {
             return this;
         }
 
-        public UsuarioBuilder id(String cpf){
+        public UsuarioBuilder cpf(String cpf){
             this.cpf = cpf;
             return this;
         }
