@@ -1,6 +1,8 @@
 package br.com.alura.codechella.domain;
 
-public class Endereco {
+import java.io.Serializable;
+
+public class Endereco implements Serializable {
     private String cep;
 
     private Integer numero;

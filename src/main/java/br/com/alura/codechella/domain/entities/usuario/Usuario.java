@@ -2,9 +2,10 @@ package br.com.alura.codechella.domain.entities.usuario;
 
 import br.com.alura.codechella.domain.Endereco;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Usuario {
+public class Usuario implements Serializable {
 
     private Long id;
     private String cpf;

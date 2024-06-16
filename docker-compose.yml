@@ -17,6 +17,15 @@ services:
     restart: always
     ports:
       - 8082:8080
+
+  redis:
+    image: redis:7.2.4
+    container_name: redis-clean
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+
 volumes:
   clean-postgres:
     external: false #se true, você tem que criar volume externo.
+

@@ -2,8 +2,10 @@ package br.com.alura.codechella.infraestrutura.persistence;
 
 import jakarta.persistence.Embeddable;
 
+import java.io.Serializable;
+
 @Embeddable
-public class EnderecoEntity {
+public class EnderecoEntity implements Serializable {
 
         private String cep;
 
